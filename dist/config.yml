@@ -1,0 +1,7 @@
+server: irc.chat.twitch.tv
+port: 6697
+ssl: true
+nick: groogybot
+oauth: 2czhuqllmwboyey8t5vpjei2xuhgo4
+channels:
+  - sirgroogy

@@ -1,0 +1,19 @@
+name: groogy-bot
+version: 0.1.0
+
+authors:
+  - Groogy <groogy@groogy.se>
+
+targets:
+  groogy-bot:
+    main: src/groogy-bot.cr
+
+dependencies:
+  crirc:
+    github: Groogy/Crirc
+    branch: master
+
+
+crystal: 0.34.0
+
+license: zlib
