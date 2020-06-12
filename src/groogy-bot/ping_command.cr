@@ -3,9 +3,9 @@ class PingCommand < Command
     super "!ping", /!ping */, "the bot respond by `pong nick`"
   end
 
-  def execute(bot, msg, match)
+  def execute(bot, client, msg, match)
     chan = msg.arguments if msg.arguments
-    bot.reply msg, "pong #{extract_nick msg.source}" if chan
+    client.reply msg, "pong #{extract_nick msg.source}" if chan
   end
 
   private def extract_nick(address : String)

@@ -12,17 +12,18 @@ class AddCommandCommand < Command
     end
   end
 
-  def execute(bot, msg, match)
+  def execute(bot, client, msg, match)
+    bot
     if match && match.size == 3
       name = match[1]
       response = match[2]
       command = CustomCommand.new name, response
-      command.apply(bot)
+      command.apply bot, client
       CustomCommand.add command
       CustomCommand.write
-      bot.reply msg, "successfully added command #{name}"
+      client.reply msg, "successfully added command #{name}"
     else
-      bot.reply msg, "failed to create custom command"
+      client.reply msg, "failed to create custom command"
     end
   end
 end

@@ -18,4 +18,7 @@ class Configuration
 
   @[YAML::Field(key: "channels")]
   property channels : Array(String)
+
+  @[YAML::Field(key: "music_player")]
+  property music_player : String
 end

@@ -1,6 +1,11 @@
 class Bot
   @config : Configuration
   @commands = [] of Command
+  @playlist = Playlist.new
+  @queue : SongQueue?
+
+  property playlist
+  getter config, queue
 
   def initialize(config_file)
     @config = File.open config_file do |file|
@@ -14,6 +19,15 @@ class Bot
     @commands << command
   end
 
+  def start_queue
+    @queue = SongQueue.new playlist
+  end
+
+  def stop_queue
+    @queue.try { |q| q.stop }
+    @queue = nil
+  end
+
   def connect
     @client.connect
     @client.puts "CAP REQ :twitch.tv/membership"
@@ -24,12 +38,10 @@ class Bot
   def run
     @client.start do |bot|
       bind bot
+      spawn { update bot }
       loop do
         begin
-          m = bot.gets
-          puts "> #{m}"
-          break if m.nil?
-          spawn { bot.handle(m.as(String)) }
+          receive_message bot
         rescue error
           puts error
           sleep 0.1
@@ -37,6 +49,22 @@ class Bot
       end
     end
     @client.close
+  end
+
+  private def receive_message(bot)
+    m = bot.gets
+    puts "> #{m}"
+    return if m.nil?
+    spawn { bot.handle(m.as(String)) }
+  end
+
+  private def update(bot)
+    loop do 
+      if queue = @queue
+        queue.update
+      end
+      sleep 0.1
+    end
   end
 
   private def bind(bot)
@@ -51,7 +79,7 @@ class Bot
     end
 
     @commands.each do |command|
-      command.apply(bot)
+      command.apply(self, bot)
     end
   end
 end

@@ -59,7 +59,7 @@ class CustomCommand < Command
     @deleted = true
   end
 
-  def execute(bot, msg, match)
-    bot.reply msg, @response unless @deleted
+  def execute(bot, client, msg, match)
+    client.reply msg, @response unless @deleted
   end
 end

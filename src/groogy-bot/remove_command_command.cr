@@ -12,15 +12,15 @@ class RemoveCommandCommand < Command
     end
   end
 
-  def execute(bot, msg, match)
+  def execute(bot, client, msg, match)
     if match && match.size == 2
       name = match[1]
-      bot.docs.delete name
+      client.docs.delete name
       CustomCommand.remove name
       CustomCommand.write
-      bot.reply msg, "successfully removed command #{name}"
+      client.reply msg, "successfully removed command #{name}"
     else
-      bot.reply msg, "failed to remove custom command"
+      client.reply msg, "failed to remove custom command"
     end
   end
 end

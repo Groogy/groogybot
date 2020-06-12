@@ -10,11 +10,11 @@ abstract class Command
     true
   end
 
-  def apply(bot)
-    bot.on("PRIVMSG", message: pattern, doc: {command, documentation} ) do |msg, match|
-      execute bot, msg, match if has_permission? msg
+  def apply(bot, client)
+    client.on("PRIVMSG", message: pattern, doc: {command, documentation} ) do |msg, match|
+      execute bot, client, msg, match if has_permission? msg
     end
   end
 
-  abstract def execute(bot, msg, match)
+  abstract def execute(bot, client, msg, match)
 end
