@@ -4,6 +4,9 @@ class HelpCommand < Command
   end
 
   def execute(bot, client, msg, match)
-    client.reply msg, client.docs.keys.join(", ")
+    response = Response.new msg, client
+    return if response.handle_error
+
+    response.reply client.docs.keys.join(", ")
   end
 end

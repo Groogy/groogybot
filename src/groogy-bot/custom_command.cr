@@ -60,6 +60,16 @@ class CustomCommand < Command
   end
 
   def execute(bot, client, msg, match)
-    client.reply msg, @response unless @deleted
+    unless @deleted
+      text = parse_response msg
+      response = Response.new msg, client
+      response.reply text
+    end
+  end
+
+  def parse_response(msg)
+    user = User.new msg
+    result = @response.gsub "{{user}}", user.nick
+    result
   end
 end

@@ -4,16 +4,13 @@ class StartMusicCommand < Command
   end
 
   def has_permission?(msg)
-    tags = msg.tags_list
-    if tag = tags["badges"]?
-      tag.includes?("broadcaster") || tag.includes?("moderator")
-    else
-      false
-    end
+    usr = User.new msg
+    usr.broadcaster? || usr.moderator?
   end
 
   def execute(bot, client, msg, match)
+    response = Response.new msg, client
     bot.start_queue
-    client.reply msg, "started playing your music :)"
+    response.reply "started playing your music :)"
   end
 end

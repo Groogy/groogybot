@@ -3,9 +3,10 @@ class Bot
   @commands = [] of Command
   @playlist = Playlist.new
   @queue : SongQueue?
+  @current_vote : Vote?
 
   property playlist
-  getter config, queue
+  getter config, queue, current_vote
 
   def initialize(config_file)
     @config = File.open config_file do |file|
@@ -26,6 +27,16 @@ class Bot
   def stop_queue
     @queue.try { |q| q.stop }
     @queue = nil
+  end
+
+  def create_vote(target, minutes, text, usr)
+    time = Time.utc
+    time += Time::Span.new minutes: minutes
+    @current_vote = Vote.new target, time, text, usr
+  end
+
+  def has_current_vote?
+    !@current_vote.nil?
   end
 
   def connect
@@ -62,6 +73,13 @@ class Bot
     loop do 
       if queue = @queue
         queue.update
+      end
+      if vote = @current_vote
+        now = Time.utc
+        if now > vote.end_time
+          vote.end bot
+          @current_vote = nil
+        end
       end
       sleep 0.1
     end

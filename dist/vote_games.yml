@@ -1,0 +1,92 @@
+---
+- name: Foobar
+  slots:
+  - name: buzz
+    nick: sirgroogy
+  - name: bizz
+    nick: third_tier_gaming
+  - name: founder
+    nick: lupusrex711
+  - name: beta
+    nick: puripuribetamale
+- name: Democratic Oxygen
+  slots:
+  - name: Burt
+    nick: third_tier_gaming
+  - name: Stinky
+    nick: lupusrex711
+  - name: Harold
+    nick: puripuribetamale
+  - name: Lindsay
+    nick: dhjaru
+  - name: Ruby
+    nick: 1nf0calypse
+  - name: Marie
+    nick: arrow2sparrow
+- name: Catharia
+  slots:
+  - name: New Denmark
+  - name: Massachusetts
+    nick: naibaff
+  - name: Yeni Istanbul
+    nick: d3v1l
+  - name: Yeni Rodos
+  - name: Pennsylvania
+  - name: Maryland
+    nick: zachldl
+  - name: Virginia
+    nick: arrow2sparrow
+  - name: West Virginia
+    nick: ii_covya_ii
+  - name: District of Colombia
+    nick: sirgroogy
+  - name: Bereketliya
+    nick: dhjaru
+  - name: Piedmont
+    nick: kizzzak
+  - name: Florida
+    nick: aijoone
+  - name: Alabama
+    nick: oahkoah
+  - name: Mississippi
+    nick: third_tier_gaming
+  - name: Louisiana
+    nick: czaraxelkeneden
+  - name: Tennessee
+    nick: vorador06
+  - name: Kentucky
+    nick: mathijsvand
+  - name: Illinois
+    nick: lord_anthony29
+  - name: Wisconsin
+    nick: siantocraft
+  - name: Minnesota
+  - name: Michigan
+    nick: lupusrex711
+  - name: Indiana
+    nick: vicdomen
+  - name: Meiou
+    nick: gigau
+  - name: Missouri
+    nick: piefromhell
+  - name: Texas
+- name: Tropico
+  slots:
+  - name: Golden Knowledge
+    nick: vicdomen
+  - name: Prophet
+    nick: sirgroogy
+  - name: Golden Faith
+    nick: third_tier_gaming
+  - name: Golden Taxes
+  - name: Golden Relations
+    nick: lupusrex711
+  - name: Blessed Pirates
+    nick: kizzzak
+  - name: Golden Proletariat
+    nick: zachldl
+  - name: Golden Rum
+  - name: Golden Maps
+    nick: gigau
+  - name: Blessed Revolution
+  - name: Public Relations

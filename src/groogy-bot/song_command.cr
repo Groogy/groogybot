@@ -4,7 +4,8 @@ class SongCommand < Command
   end
 
   def execute(bot, client, msg, match)
+    response = Response.new msg, client
     song_info = Player.currently_playing
-    client.reply msg, "Currently playing: #{song_info}"
+    response.reply "currently playing: #{song_info}"
   end
 end

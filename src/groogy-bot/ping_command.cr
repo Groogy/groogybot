@@ -4,11 +4,8 @@ class PingCommand < Command
   end
 
   def execute(bot, client, msg, match)
-    chan = msg.arguments if msg.arguments
-    client.reply msg, "pong #{extract_nick msg.source}" if chan
-  end
-
-  private def extract_nick(address : String)
-    address.split('!')[0]
+    response = Response.new msg, client
+    usr = User.new msg
+    response.reply "pong #{usr.nick}"
   end
 end

@@ -12,6 +12,7 @@ class SongQueue
       else
         play_request
       end
+      sleep 0.1
     end
   end
 

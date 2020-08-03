@@ -7,3 +7,7 @@
 
 shard.lock
 .editorconfig
+
+/dist/playlist.yml
+/dist/commands.yml
+/dist/config.yml

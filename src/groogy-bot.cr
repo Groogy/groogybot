@@ -4,6 +4,7 @@ require "./groogy-bot/command.cr"
 require "./groogy-bot/*"
 
 CustomCommand.load
+VoteGame.load
 
 bot = Bot.new "config.yml"
 
@@ -18,6 +19,20 @@ bot << StopMusicCommand.new
 bot << RequestSongCommand.new
 bot << AddCommandCommand.new
 bot << RemoveCommandCommand.new
+bot << AddGameCommand.new
+bot << RemoveGameCommand.new
+bot << StartGameCommand.new
+bot << StopGameCommand.new
+bot << AddVoteSlotCommand.new
+bot << RemoveVoteSlotCommand.new
+bot << ClaimVoteSlotCommand.new
+bot << VotersCommand.new
+bot << StartVoteCommand.new
+bot << YayCommand.new
+bot << NayCommand.new
+bot << FilibusterCommand.new
+bot << VoteStatusCommand.new
+bot << AvailableVotersCommand.new
 
 CustomCommand.each do |c|
   bot << c

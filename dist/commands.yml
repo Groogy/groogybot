@@ -1,1 +1,20 @@
---- []
+---
+- command: '!social'
+  response: You can find Groogy at his Twitter ( https://twitter.com/SirVogelius )
+    or on the Discord( https://discord.gg/jC8RdvS )
+- command: '!itsfine'
+  response: sirgro1Fine It's not fine sirgro1Fine
+- command: '!plan'
+  response: sirgro1Plan All according to keikaku sirgro1Plan
+- command: '!playlist'
+  response: 'you can find the available songs to request here: https://pastebin.com/qhtNFmd2'
+- command: '!bot'
+  response: Hello {{user}}! I am groogybot and I can do several different things for
+    you. If you wonder what I can do just write !help in chat and I'll give you a
+    list of all commands I have.
+- command: '!vic3'
+  response: I am not making Victoria 3
+- command: '!vic3when'
+  response: Every time you ask, it's delayed by one week
+- command: '!hydrate'
+  response: remember to drink fluids Groogy onii-san UwU

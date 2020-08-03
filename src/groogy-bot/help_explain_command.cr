@@ -4,7 +4,10 @@ class HelpExplainCommand < Command
   end
 
   def execute(bot, client, msg, match)
-    doc = client.docs[match.as(Regex::MatchData)[1]]?
-    doc.split("\n").each { |split| client.reply msg, split } unless doc.nil?
+    response = Response.new msg, client, 1, match
+    return if response.handle_error
+
+    doc = client.docs[response.args[0]]?
+    doc.split("\n").each { |split| response.reply split } unless doc.nil?
   end
 end
